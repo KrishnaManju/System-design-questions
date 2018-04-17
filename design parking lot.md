@@ -20,7 +20,7 @@ Abstract classes can define abstract as well as concrete methods whereas Interfa
 In our example, if we think of vehicle, any vehicle will have numberplate and all vehicles hsould pay parking amount. So, we can declare those methods in abstract class to avoid redundancy. If we use interface for vehicle class, we have to define same code in each derived class which is a duplication of work.
 
 ### Creating Entities and interfaces/abstraction
-
+```
 public class parkingStructure {
     List<ParkingSpace> availableSpaces;
     Dictionary<vehicle,ParkingSpace> d= new Dictionary<vehicle,ParkingSpace>();
@@ -30,7 +30,9 @@ public class parkingStructure {
     public ParkingSpace getParkingSpace();
     public ParkingSpace findMyParkigSpace(vehicle V);
 }
+```
 
+```
 public abstract class ParkingSpace {
     private Vehicle v;
     private ParkingSpace ps;
@@ -40,19 +42,23 @@ public abstract class ParkingSpace {
     public abstract int getHourlyRate();
     publoic void payParkingFees(int amt) throws PaymentException{}
 }
-
+```
+```
 public class HandicappedParkingSpace : ParkingSpace {
     public int getHourlyRate(){}
 }
-
+```
+```
 public class RegularParkingSpace : ParkingSpace {
     public int getHourlyRate(){}
 }
-
+```
+```
 public class abstract vehicle {
     public string numberPlate;
    public enum color = { blue , green , yellow , orange } ; //to differenctiate type of vehicle in the parking spot
 }
+```
 
 For vehicle, we cant create interface since we have defined colors for vehicle type.
 
